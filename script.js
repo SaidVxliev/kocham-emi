@@ -1,8 +1,9 @@
+
 document.addEventListener('mousemove', (event) => {
     const eyes = document.querySelectorAll('.eye');
 
     eyes.forEach(eye => {
-        const pupil = eye.querySelector('.pupil');
+        const iris = eye.querySelector('.iris');
         const eyeRect = eye.getBoundingClientRect();
 
         const eyeCenterX = eyeRect.left + eyeRect.width / 2;
@@ -13,11 +14,11 @@ document.addEventListener('mousemove', (event) => {
 
         const angle = Math.atan2(deltaY, deltaX);
 
-        const maxDistance = 30; // Maksymalne przesunięcie źrenicy
-        const pupilX = Math.cos(angle) * maxDistance * 0.3;
-        const pupilY = Math.sin(angle) * maxDistance * 0.3;
+        const maxDistance = 20; // Maksymalne przesunięcie tęczówki
+        const irisX = Math.cos(angle) * maxDistance * 0.3;
+        const irisY = Math.sin(angle) * maxDistance * 0.3;
 
-        pupil.style.left = `${35 + pupilX}px`;
-        pupil.style.top = `${35 + pupilY}px`;
+        iris.style.left = `${20 + irisX}px`;
+        iris.style.top = `${20 + irisY}px`;
     });
 });
